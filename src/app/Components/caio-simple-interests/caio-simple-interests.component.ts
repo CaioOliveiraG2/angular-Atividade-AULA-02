@@ -6,19 +6,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./caio-simple-interests.component.css'],
 })
 export class CaioSimpleInterestsComponent implements OnInit {
-  @Input() c: string;
-  @Input() i: string;
-  @Input() t: string;
-
+  @Input() c: String;
+  @Input() tx: String;
+  @Input() time: String;
   constructor() {}
 
   ngOnInit() {}
 
   convertPorcentagem() {
-    return Number(this.i) / 100;
+    return Number(this.tx)/100;
   }
 
   jurosSimples() {
-    return Number(this.c) * this.convertPorcentagem() * Number(this.t);
+    return Number(this.c) * this.convertPorcentagem() * Number(this.time);
   }
 }

@@ -6,11 +6,23 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./caio-compound-interests.component.css'],
 })
 export class CaioCompoundInterestsComponent implements OnInit {
-  @Input() c: string;
-  @Input() i: string;
-  @Input() n: string;
-
   constructor() {}
 
+  @Input() c: String;
+  @Input() tx: String;
+  @Input() time: String;
+
   ngOnInit() {}
+
+  convertTaxa() {
+    return 1 + Number(this.tx) / 100;
+  }
+
+  elevado() {
+    return this.convertTaxa() ** Number(this.time);
+  }
+
+  acumulado() {
+    return Number(this.c) * this.elevado();
+  }
 }
